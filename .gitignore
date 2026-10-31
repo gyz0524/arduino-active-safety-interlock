@@ -1,0 +1,26 @@
+# Python test/runtime cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Arduino IDE local metadata and build output
+.arduino15/
+build/
+out/
+*.hex
+*.elf
+*.eep
+*.map
+
+# Editor and OS files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Local credentials or machine-specific notes
+.env
+.env.*
+secrets/
+private/

@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1000" viewBox="0 0 1500 1000">
+  <title>主动式三步安全联锁控制台接线图</title>
+  <desc>Arduino Uno R3, LCD1602, TTP223B, joystick, SW-520D and MAX7219 LED matrix wiring.</desc>
+  <style>
+    .title { font: 700 30px Arial, "Microsoft YaHei", sans-serif; fill: #18212b; }
+    .subtitle { font: 16px Arial, "Microsoft YaHei", sans-serif; fill: #4b5563; }
+    .box { fill: #f8fafc; stroke: #334155; stroke-width: 2; }
+    .board { fill: #e8f5e9; stroke: #166534; stroke-width: 3; }
+    .module { fill: #eff6ff; stroke: #1d4ed8; stroke-width: 2; }
+    .matrix { fill: #dbeafe; stroke: #1e40af; stroke-width: 3; }
+    .label { font: 16px Arial, "Microsoft YaHei", sans-serif; fill: #111827; }
+    .small { font: 13px Arial, "Microsoft YaHei", sans-serif; fill: #334155; }
+    .pin { font: 14px Consolas, monospace; fill: #0f172a; }
+    .signal { fill: none; stroke: #2563eb; stroke-width: 3; }
+    .power { fill: none; stroke: #dc2626; stroke-width: 3; }
+    .ground { fill: none; stroke: #111827; stroke-width: 3; }
+    .note { fill: #fff7ed; stroke: #c2410c; stroke-width: 2; }
+  </style>
+
+  <rect width="1500" height="1000" fill="#ffffff"/>
+  <text x="55" y="55" class="title">主动式三步安全联锁控制台：Uno R3 接线图</text>
+  <text x="55" y="85" class="subtitle">正确流程：触摸启动 → 摇杆向左并按下 → 倾斜保持；点阵显示 CHECK 或 CROSS</text>
+
+  <!-- Arduino -->
+  <rect x="55" y="150" width="350" height="690" rx="14" class="board"/>
+  <text x="85" y="195" class="title" style="font-size:24px">Arduino UNO R3</text>
+  <text x="85" y="225" class="small">USB 供电；所有模块共地</text>
+  <line x1="85" y1="255" x2="370" y2="255" stroke="#86efac" stroke-width="2"/>
+  <text x="85" y="285" class="pin">D2  LCD RS</text>
+  <text x="85" y="315" class="pin">D3  LCD E</text>
+  <text x="85" y="345" class="pin">D4  LCD D4</text>
+  <text x="85" y="375" class="pin">D5  LCD D5</text>
+  <text x="85" y="405" class="pin">D6  LCD D6</text>
+  <text x="85" y="435" class="pin">D7  LCD D7</text>
+  <text x="85" y="465" class="pin">D8  TTP223 OUT</text>
+  <text x="85" y="495" class="pin">D9  Joystick SW</text>
+  <text x="85" y="525" class="pin">D10 SW-520D S</text>
+  <text x="85" y="555" class="pin">D11 Matrix DIN</text>
+  <text x="85" y="585" class="pin">D12 Matrix CS</text>
+  <text x="85" y="615" class="pin">D13 Matrix CLK</text>
+  <text x="85" y="660" class="pin">A0  Joystick VRx</text>
+  <text x="85" y="700" class="pin">5V  breadboard + rail</text>
+  <text x="85" y="740" class="pin">GND breadboard - rail</text>
+  <text x="85" y="790" class="small">A1 / VRy 暂不接</text>
+
+  <!-- Breadboard -->
+  <rect x="475" y="145" width="260" height="700" rx="12" fill="#fefce8" stroke="#a16207" stroke-width="3"/>
+  <text x="510" y="185" class="label" style="font-weight:700">面包板</text>
+  <text x="510" y="212" class="small">电源轨</text>
+  <line x1="520" y1="255" x2="690" y2="255" class="power"/>
+  <line x1="520" y1="285" x2="690" y2="285" class="ground"/>
+  <text x="520" y="245" class="small">+5V</text>
+  <text x="520" y="305" class="small">GND</text>
+  <rect x="530" y="350" width="150" height="350" fill="#fff" stroke="#d4d4d8" stroke-width="2"/>
+  <text x="548" y="735" class="small">模块 VCC 全接 +5V</text>
+  <text x="548" y="758" class="small">模块 GND 全接 GND</text>
+
+  <!-- LCD -->
+  <rect x="820" y="125" width="570" height="230" rx="12" class="module"/>
+  <text x="850" y="165" class="title" style="font-size:23px">LCD1602A（4-bit）</text>
+  <text x="850" y="205" class="pin">RS → D2</text>
+  <text x="850" y="232" class="pin">E  → D3</text>
+  <text x="850" y="259" class="pin">D4 → D4   D5 → D5</text>
+  <text x="850" y="286" class="pin">D6 → D6   D7 → D7</text>
+  <text x="850" y="313" class="pin">VSS → GND   VDD → +5V</text>
+  <text x="850" y="340" class="pin">VO → 电位器中间端</text>
+  <text x="1160" y="205" class="small">电位器两端：+5V / GND</text>
+
+  <!-- Matrix -->
+  <rect x="820" y="400" width="355" height="285" rx="12" class="matrix"/>
+  <text x="850" y="442" class="title" style="font-size:23px">LED Matrix F3</text>
+  <text x="850" y="480" class="label">MAX7219 类串行模块</text>
+  <text x="850" y="525" class="pin">DIN → D11</text>
+  <text x="850" y="555" class="pin">CS  → D12</text>
+  <text x="850" y="585" class="pin">CLK → D13</text>
+  <text x="850" y="625" class="pin">VCC → +5V   GND → GND</text>
+  <text x="850" y="660" class="small">DOUT 不接（不级联第二块）</text>
+
+  <!-- Input modules -->
+  <rect x="1210" y="400" width="230" height="105" rx="10" class="module"/>
+  <text x="1235" y="432" class="label" style="font-weight:700">TTP223B</text>
+  <text x="1235" y="460" class="pin">OUT → D8</text>
+  <text x="1235" y="486" class="pin">VCC/GND → 电源轨</text>
+
+  <rect x="1210" y="530" width="230" height="130" rx="10" class="module"/>
+  <text x="1235" y="562" class="label" style="font-weight:700">Joystick</text>
+  <text x="1235" y="590" class="pin">SW → D9</text>
+  <text x="1235" y="616" class="pin">VRx → A0</text>
+  <text x="1235" y="642" class="pin">VCC/GND → 电源轨</text>
+
+  <rect x="1210" y="685" width="230" height="115" rx="10" class="module"/>
+  <text x="1235" y="717" class="label" style="font-weight:700">SW-520D</text>
+  <text x="1235" y="745" class="pin">S/DO → D10</text>
+  <text x="1235" y="772" class="pin">VCC/GND → 电源轨</text>
+
+  <!-- Signal lines from Uno to modules -->
+  <path d="M405 285 C560 285 650 205 820 205" class="signal"/>
+  <path d="M405 315 C560 315 650 232 820 232" class="signal"/>
+  <path d="M405 345 C560 345 650 259 820 259" class="signal"/>
+  <path d="M405 375 C560 375 650 286 820 286" class="signal"/>
+  <path d="M405 405 C560 405 650 313 820 313" class="signal"/>
+  <path d="M405 435 C560 435 650 340 820 340" class="signal"/>
+  <path d="M405 465 C700 465 980 455 1210 455" class="signal"/>
+  <path d="M405 495 C720 495 1000 590 1210 590" class="signal"/>
+  <path d="M405 525 C720 525 1000 745 1210 745" class="signal"/>
+  <path d="M405 555 C570 555 680 525 820 525" class="signal"/>
+  <path d="M405 585 C570 585 680 555 820 555" class="signal"/>
+  <path d="M405 615 C570 615 680 585 820 585" class="signal"/>
+  <path d="M405 660 C750 660 1000 616 1210 616" class="signal"/>
+
+  <!-- Power distribution -->
+  <path d="M405 700 C445 700 465 255 520 255" class="power"/>
+  <path d="M405 740 C445 740 465 285 520 285" class="ground"/>
+  <path d="M690 255 C750 255 780 313 850 313" class="power"/>
+  <path d="M690 255 C800 255 1060 480 1235 486" class="power"/>
+  <path d="M690 255 C850 255 1030 642 1235 642" class="power"/>
+  <path d="M690 255 C820 255 860 625 850 625" class="power"/>
+  <path d="M690 285 C800 285 1040 313 1120 313" class="ground"/>
+  <path d="M690 285 C820 285 1030 625 850 625" class="ground"/>
+  <path d="M690 285 C880 285 1050 486 1235 486" class="ground"/>
+  <path d="M690 285 C900 285 1050 642 1235 642" class="ground"/>
+
+  <!-- Legend / notes -->
+  <rect x="55" y="875" width="1390" height="85" rx="10" class="note"/>
+  <text x="80" y="910" class="label" style="font-weight:700">注意</text>
+  <text x="150" y="910" class="small">1. 点阵必须使用右侧标有 DIN/CLK/CS 的输入端；左侧 DOUT 不接。</text>
+  <text x="150" y="935" class="small">2. SW-520D 若倾斜逻辑相反，把代码中的 TILT_ACTIVE_LEVEL 从 LOW 改为 HIGH。</text>
+  <text x="850" y="910" class="small">蓝线=信号，红线=+5V，黑线=GND。</text>
+  <text x="850" y="935" class="small">如果点阵使 Uno 重启，改用稳定 5V 电源并与 Uno 共地。</text>
+</svg>

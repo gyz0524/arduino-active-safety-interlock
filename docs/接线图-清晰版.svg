@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200">
+  <title>Arduino Uno R3 主动式三步安全联锁控制台清晰接线图</title>
+  <style>
+    .title{font:700 34px Arial,"Microsoft YaHei",sans-serif;fill:#111827}
+    .h2{font:700 23px Arial,"Microsoft YaHei",sans-serif;fill:#0f172a}
+    .body{font:17px Arial,"Microsoft YaHei",sans-serif;fill:#1f2937}
+    .mono{font:16px Consolas,monospace;fill:#111827}
+    .small{font:14px Arial,"Microsoft YaHei",sans-serif;fill:#475569}
+    .card{fill:#fff;stroke:#cbd5e1;stroke-width:2;rx:14}
+    .uno{fill:#ecfdf5;stroke:#15803d;stroke-width:3}
+    .module{fill:#eff6ff;stroke:#1d4ed8;stroke-width:2}
+    .power{fill:#fff7ed;stroke:#c2410c;stroke-width:2}
+    .row{fill:#f8fafc;stroke:#e2e8f0;stroke-width:1}
+    .signal{stroke:#2563eb;stroke-width:4}
+    .vcc{stroke:#dc2626;stroke-width:4}
+    .gnd{stroke:#111827;stroke-width:4}
+    .accent{fill:#fef3c7;stroke:#d97706;stroke-width:2}
+  </style>
+  <rect width="1800" height="1200" fill="#f8fafc"/>
+  <text x="60" y="58" class="title">Arduino Uno R3 主动式三步安全联锁控制台</text>
+  <text x="60" y="92" class="body">清晰端口表：触摸启动 → 摇杆向左并按下 → 倾斜保持 → 点阵显示对勾/叉号</text>
+
+  <rect x="60" y="130" width="540" height="930" class="card uno"/>
+  <text x="95" y="180" class="h2">① Arduino Uno R3</text>
+  <text x="95" y="210" class="small">数字端口按程序固定，不要交换</text>
+  <rect x="90" y="240" width="480" height="54" class="row"/><text x="115" y="275" class="mono">D2  → LCD RS</text>
+  <rect x="90" y="302" width="480" height="54" class="row"/><text x="115" y="337" class="mono">D3  → LCD E</text>
+  <rect x="90" y="364" width="480" height="54" class="row"/><text x="115" y="399" class="mono">D4  → LCD D4</text>
+  <rect x="90" y="426" width="480" height="54" class="row"/><text x="115" y="461" class="mono">D5  → LCD D5</text>
+  <rect x="90" y="488" width="480" height="54" class="row"/><text x="115" y="523" class="mono">D6  → LCD D6</text>
+  <rect x="90" y="550" width="480" height="54" class="row"/><text x="115" y="585" class="mono">D7  → LCD D7</text>
+  <rect x="90" y="612" width="480" height="54" class="row"/><text x="115" y="647" class="mono">D8  → TTP223B OUT</text>
+  <rect x="90" y="674" width="480" height="54" class="row"/><text x="115" y="709" class="mono">D9  → Joystick SW</text>
+  <rect x="90" y="736" width="480" height="54" class="row"/><text x="115" y="771" class="mono">D10 → SW-520D S/DO</text>
+  <rect x="90" y="798" width="480" height="54" class="row"/><text x="115" y="833" class="mono">D11 → Matrix DIN</text>
+  <rect x="90" y="860" width="480" height="54" class="row"/><text x="115" y="895" class="mono">D12 → Matrix CS</text>
+  <rect x="90" y="922" width="480" height="54" class="row"/><text x="115" y="957" class="mono">D13 → Matrix CLK</text>
+  <rect x="90" y="984" width="480" height="54" class="accent"/><text x="115" y="1019" class="mono">A0  ← Joystick VRx</text>
+
+  <rect x="650" y="130" width="470" height="930" class="card power"/>
+  <text x="685" y="180" class="h2">② 面包板电源轨</text>
+  <text x="685" y="215" class="body">只做两条公共电源线</text>
+  <rect x="690" y="265" width="390" height="100" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="720" y="305" class="h2" style="fill:#b91c1c">+5V 电源轨</text>
+  <text x="720" y="338" class="body">Uno 5V → 正电源轨</text>
+  <rect x="690" y="405" width="390" height="100" fill="#e5e7eb" stroke="#111827" stroke-width="2"/>
+  <text x="720" y="445" class="h2">GND 地线轨</text>
+  <text x="720" y="478" class="body">Uno GND → 负电源轨</text>
+  <text x="690" y="570" class="h2">所有模块统一接电源轨</text>
+  <text x="690" y="610" class="body">LCD VDD → +5V</text>
+  <text x="690" y="642" class="body">LCD VSS → GND</text>
+  <text x="690" y="674" class="body">TTP223B VCC/GND → 电源轨</text>
+  <text x="690" y="706" class="body">Joystick VCC/GND → 电源轨</text>
+  <text x="690" y="738" class="body">SW-520D VCC/GND → 电源轨</text>
+  <text x="690" y="770" class="body">Matrix VCC/GND → 电源轨</text>
+  <rect x="690" y="830" width="390" height="140" class="accent"/>
+  <text x="715" y="870" class="h2">LCD 对比度</text>
+  <text x="715" y="905" class="body">电位器一端 → +5V</text>
+  <text x="715" y="935" class="body">电位器另一端 → GND</text>
+  <text x="715" y="965" class="body">电位器中间脚 → LCD VO</text>
+
+  <rect x="1170" y="130" width="570" height="300" class="card module"/>
+  <text x="1210" y="180" class="h2">③ LCD1602A 并口模式</text>
+  <text x="1210" y="225" class="mono">RS → Uno D2</text>
+  <text x="1210" y="257" class="mono">E  → Uno D3</text>
+  <text x="1210" y="289" class="mono">D4 → Uno D4    D5 → Uno D5</text>
+  <text x="1210" y="321" class="mono">D6 → Uno D6    D7 → Uno D7</text>
+  <text x="1210" y="353" class="mono">VSS → GND      VDD → +5V</text>
+  <text x="1210" y="385" class="mono">RW  → GND      VO  → 电位器中间脚</text>
+  <text x="1210" y="417" class="mono">A/LED+ → +5V   K/LED- → GND</text>
+
+  <rect x="1170" y="460" width="570" height="250" class="card module"/>
+  <text x="1210" y="510" class="h2">④ 输入模块</text>
+  <text x="1210" y="550" class="mono">TTP223B OUT  → Uno D8</text>
+  <text x="1210" y="582" class="mono">Joystick SW → Uno D9</text>
+  <text x="1210" y="614" class="mono">Joystick VRx → Uno A0</text>
+  <text x="1210" y="646" class="mono">SW-520D S/DO → Uno D10</text>
+  <text x="1210" y="678" class="mono">Buzzer S/IN → Uno A1</text>
+
+  <rect x="1170" y="740" width="570" height="250" class="card module"/>
+  <text x="1210" y="790" class="h2">⑤ LED Matrix F3（MAX7219 类）</text>
+  <text x="1210" y="832" class="mono">右侧 DIN → Uno D11</text>
+  <text x="1210" y="864" class="mono">右侧 CS  → Uno D12</text>
+  <text x="1210" y="896" class="mono">右侧 CLK → Uno D13</text>
+  <text x="1210" y="928" class="mono">右侧 VCC → +5V</text>
+  <text x="1210" y="960" class="mono">右侧 GND → GND</text>
+  <text x="1210" y="986" class="small">左侧 DOUT 不接；不级联第二块点阵</text>
+
+  <rect x="1170" y="1020" width="570" height="80" class="accent"/>
+  <text x="1210" y="1055" class="body">蓝线=信号  红线=+5V  黑线=GND</text>
+  <text x="1210" y="1082" class="body">点阵亮度异常时先检查共地和 5V 供电</text>
+</svg>
